@@ -1,4 +1,4 @@
-# CS-340
+# Introduction to Databases
 Course title: Introduction to Databases
 
 
@@ -12,7 +12,7 @@ Design and implementation of relational databases, including data modeling with 
 
 # Project:
 
-The CS340 Project that you will submit at the end of this course should satisfy all these specifications:
+The Project that you will submit at the end of this course should satisfy all these specifications:
 
 Your database should be pre-populated with sample data. At least three rows per table is expected. The sample data should illustrate a table's functionality, e.g. if the table is part of a many-to-many relationship, the sample data should depict M:M.
 
