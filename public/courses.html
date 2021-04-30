@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset = "utf-8">
+            <title>Search Course</title>
+            <link rel = "stylesheet" href = "style.css">
+      </head>
+
+      <body>
+            <header>
+                 <div class = "header-container">
+                       <h1>Search Course</h1>
+                       <p>Search courses, add, delete and modify courses.
+                       </p>
+                  </div>
+            </header>
+
+            <div class = "stu_div">
+
+              <div style="width: 100%; overflow: hidden;">
+                <div style="width: 600px; float: left;">
+
+                  <table id="t3">
+                        <p>Search for Course:</p>
+                        <tr>
+                              <td>Name:</td>
+                              <td><input type="text" id="sid"></td>
+                        </tr>
+                        <tr>
+                              <td><input type="button" value="search" onclick="searchStudentByID()"></td>
+                        </tr>
+                  </table>
+                  <script>
+                    function searchStudentByID() {
+                      var sid = document.getElementById('sid').value;
+                      window.location = '/courses/' + encodeURI(sid);
+                    }
+                  </script>
+
+                  <br>
+                  <br>
+                  <div>
+                        <p>Add a course</p>
+                  </div>
+
+                  <!-- <table id="t1"> -->
+                  <form action="/courses" method="post">
+                    Course Name: <input type="text" name="name"><br>
+                    CRN: <input type="text" name="crn"><br>
+                    Credit: <input type="text" name="credit"><br>
+                    <input type="submit" value="Submit">
+                  </form>
+
+                  <br>
+
+                  <table id="t3">
+                        <p>Delete a course:</p>
+                        <tr>
+                              <td>Course CRN:</td>
+                              <td><input type="text" id="d_sid"></td>
+                        </tr>
+                        <tr>
+                              <td><input type="button" value="delete" onclick="deleteStudentByID()"></td>
+                        </tr>
+                  </table>
+                  <script>
+                    function deleteStudentByID() {
+                      var sid = document.getElementById('d_sid').value;
+                      window.location = '/courses/delete/' + encodeURI(sid);
+                    }
+                  </script>
+
+                </div>
+
+                <div style="margin-left: 620px;">
+                  <div>
+                        <p>Update course</p>
+                  </div>
+
+                  <form action="/courses/update" method="post">
+                    <p>Update course infomation for:</p>
+                    Course CRN: <input type="text" name="crn"><br>
+                    <br>
+                    <p>Enter the updated infomation:</p>
+                    Course Name: <input type="text" name="name"><br>
+                    Credit: <input type="text" name="credit"><br>
+                    <input type="submit" value="Submit">
+                  </form>
+                </div>
+              </div>
+
+
+                  <!-- </table> -->
+            </div>
+      </body>
+
+</html>

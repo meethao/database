@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset = "utf-8">
+            <title>Register Class</title>
+            <link rel = "stylesheet" href = "style.css">
+      </head>
+
+      <body>
+            <header>
+                 <div class = "header-container">
+                       <h1>Register Class</h1>
+                       <p>Students can register for a class.</p>
+                  </div>
+            </header>
+
+            <div class = "stu_div">
+
+              <div style="width: 100%; overflow: hidden;">
+                <div style="width: 600px; float: left;">
+
+                  <table id="t3">
+                        <p>Show All Courses:</p>
+                        <tr>
+                              <td><input type="button" value="show" onclick="searchAllCourse()"></td>
+                        </tr>
+                  </table>
+                  <script>
+                    function searchAllCourse() {
+                      window.location = '/courses' ;
+                    }
+                  </script>
+
+                  <br>
+                  <br>
+                  <div>
+                        <p>Register</p>
+                  </div>
+
+                  <!-- <table id="t1"> -->
+                  <form action="/registers" method="post">
+                    Student ID: <input type="text" name="id"><br>
+                    Course CRN: <input type="text" name="crn"><br>
+                    <input type="submit" value="Register">
+                  </form>
+
+                  <br>
+
+                </div>
+
+                <div style="margin-left: 620px;">
+                  <table id="t3">
+                        <p>Check enrollment:</p>
+                        <tr>
+                              <td>Student ID:</td>
+                              <td><input type="text" id="sid"></td>
+                        </tr>
+                        <tr>
+                              <td><input type="button" value="search" onclick="searchStudentByID()"></td>
+                        </tr>
+                  </table>
+                  <script>
+                    function searchStudentByID() {
+                      var sid = document.getElementById('sid').value;
+                      window.location = '/registers/' + encodeURI(sid);
+                    }
+                  </script>
+
+                  <table id="t3">
+                        <p>Delete an enrollment:</p>
+                        <form action="/registers/delete" method="post">
+                          Student ID: <input type="text" name="id"><br>
+                          Course CRN: <input type="text" name="crn"><br>
+                          <input type="submit" value="Register">
+                        </form>
+                </div>
+              </div>
+
+
+                  <!-- </table> -->
+            </div>
+
+      </body>
+
+</html>

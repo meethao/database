@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset = "utf-8">
+            <title>Students Information</title>
+            <link rel = "stylesheet" href = "style.css">
+      </head>
+
+      <body>
+            <header >
+                  <div class = "header-container">
+                        <h1>Students Information</h1>
+                        <p>List students' ID, name, courses</p>
+                  </div>
+            </header>
+
+            <div class = "stu_div">
+
+              <div style="width: 100%; overflow: hidden;">
+                <div style="width: 600px; float: left;">
+
+                  <table id="t3">
+                        <p>Search for student:</p>
+                        <tr>
+                              <td>Student ID:</td>
+                              <td><input type="text" id="sid"></td>
+                        </tr>
+                        <tr>
+                              <td><input type="button" value="search" onclick="searchStudentByID()"></td>
+                        </tr>
+                  </table>
+                  <script>
+                    function searchStudentByID() {
+                      var sid = document.getElementById('sid').value;
+                      window.location = '/students/' + encodeURI(sid);
+                    }
+                  </script>
+
+                  <br>
+                  <br>
+                  <div>
+                        <p>Add student</p>
+                  </div>
+
+                  <!-- <table id="t1"> -->
+                  <form action="/students" method="post">
+                    First name: <input type="text" name="fname"><br>
+                    Last name: <input type="text" name="lname"><br>
+                    Student ID: <input type="text" name="id"><br>
+                    Student Major: <input type="text" name="major"><br>
+                    <input type="submit" value="Submit">
+                  </form>
+
+                  <br>
+
+                  <table id="t3">
+                        <p>Delete a student:</p>
+                        <tr>
+                              <td>Student ID:</td>
+                              <td><input type="text" id="d_sid"></td>
+                        </tr>
+                        <tr>
+                              <td><input type="button" value="delete" onclick="deleteStudentByID()"></td>
+                        </tr>
+                  </table>
+                  <script>
+                    function deleteStudentByID() {
+                      var sid = document.getElementById('d_sid').value;
+                      window.location = '/students/delete/' + encodeURI(sid);
+                    }
+                  </script>
+
+                </div>
+
+                <div style="margin-left: 620px;">
+                  <div>
+                        <p>Update student</p>
+                  </div>
+
+                  <form action="/students/update" method="post">
+                    <p>Update student infomation for:</p>
+                    Student ID: <input type="text" name="id"><br>
+                    <br>
+                    <p>Enter the updated infomation:</p>
+                    First name: <input type="text" name="fname"><br>
+                    Last name: <input type="text" name="lname"><br>
+                    Student Major: <input type="text" name="major"><br>
+                    <input type="submit" value="Submit">
+                  </form>
+                </div>
+              </div>
+
+
+                  <!-- </table> -->
+            </div>
+      </body>
+
+</html>

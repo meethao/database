@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset = "utf-8">
+            <title>Instructor Information</title>
+            <link rel = "stylesheet" href = "style.css">
+      </head>
+
+      <body>
+            <header>
+                 <div class = "header-container">
+                       <h1>Instructor Information</h1>
+                       <p>List instructor's name, department, courses.</p>
+                  </div>
+            </header>
+
+            <div class = "stu_div">
+
+              <div style="width: 100%; overflow: hidden;">
+                <div style="width: 600px; float: left;">
+
+                  <table id="t3">
+                        <p>Search for instructor:</p>
+                        <tr>
+                              <td>Department:</td>
+                              <td><input type="text" id="sid"></td>
+                        </tr>
+                        <tr>
+                              <td><input type="button" value="search" onclick="searchStudentByID()"></td>
+                        </tr>
+                  </table>
+                  <script>
+                    function searchStudentByID() {
+                      var sid = document.getElementById('sid').value;
+                      window.location = '/instructors/' + encodeURI(sid);
+                    }
+                  </script>
+
+                  <br>
+
+                  <table id="t3">
+                        <p>Delete a instructor:</p>
+                        <tr>
+                              <td>Instructor ID:</td>
+                              <td><input type="text" id="d_sid"></td>
+                        </tr>
+                        <tr>
+                              <td><input type="button" value="delete" onclick="deleteStudentByID()"></td>
+                        </tr>
+                  </table>
+                  <script>
+                    function deleteStudentByID() {
+                      var sid = document.getElementById('d_sid').value;
+                      window.location = '/instructors/delete/' + encodeURI(sid);
+                    }
+                  </script>
+
+                  <div>
+                        <p>Add instructor</p>
+                  </div>
+
+                  <!-- <table id="t1"> -->
+                  <form action="/instructors" method="post">
+                    First name: <input type="text" name="fname"><br>
+                    Last name: <input type="text" name="lname"><br>
+                    Instructor ID: <input type="text" name="id"><br>
+                    Department: <input type="text" name="department"><br>
+                    <input type="submit" value="Submit">
+                  </form>
+
+                  <br>
+                  <br>
+
+                </div>
+
+                <div style="margin-left: 620px;">
+                  <div>
+                        <p>Update instructor</p>
+                  </div>
+
+                  <form action="/instructors/update" method="post">
+                    <p>Update instructor infomation for:</p>
+                    Instructor ID: <input type="text" name="id"><br>
+                    <br>
+                    <p>Enter the updated infomation:</p>
+                    First name: <input type="text" name="fname"><br>
+                    Last name: <input type="text" name="lname"><br>
+                    Department: <input type="text" name="department"><br>
+                    <input type="submit" value="Submit">
+                  </form>
+                </div>
+              </div>
+
+
+                  <!-- </table> -->
+            </div>
+      </body>
+
+</html>
